@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BOU BAZAR TOP UP</title>
+
+<style>
+body{font-family:Arial;background:#111;color:white;text-align:center;margin:0;}
+h1{color:#00ffd5;margin-top:20px;}
+.section{background:#222;margin:15px;padding:15px;border-radius:10px;}
+.packages{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.package{background:#333;padding:12px;border-radius:8px;cursor:pointer;}
+.package.selected{border:2px solid #00ffd5;}
+input{padding:10px;border:none;border-radius:6px;margin:5px;}
+button{padding:10px;border:none;background:#00ffd5;border-radius:6px;font-weight:bold;cursor:pointer;}
+.copy{background:red;color:white;margin-left:5px;}
+.price{font-size:18px;margin-top:10px;}
+#offer{color:yellow;font-size:18px;margin-bottom:10px;}
+</style>
+</head>
+<body>
+
+<h1>💎 BOU BAZAR TOP UP</h1>
+
+<div id="offer"></div>
+
+<!-- Player UID -->
+<div class="section">
+<h3>🆔 Player UID</h3>
+<input type="text" id="playerID" placeholder="Player ID দিন">
+</div>
+
+<!-- Special Offer 1/10/660 TK -->
+<div class="section">
+<h3>🔥 Special Offer</h3>
+<div class="packages">
+<div class="package" onclick="selectDiamond(this,1)">UCL Light<br>1 TK</div>
+<div class="package" onclick="selectDiamond(this,10)">UCL<br>10 TK</div>
+<div class="package" onclick="selectDiamond(this,660)">Matli<br>660 TK</div>
+</div>
+</div>
+
+<!-- Diamond Packages -->
+<div class="section">
+<h3>💎 Diamond</h3>
+<div class="packages">
+<div class="package" onclick="selectDiamond(this,22)">25 💎<br>22 TK</div>
+<div class="package" onclick="selectDiamond(this,39)">50 💎<br>39 TK</div>
+<div class="package" onclick="selectDiamond(this,75)">115 💎<br>75 TK</div>
+<div class="package" onclick="selectDiamond(this,150)">240 💎<br>150 TK</div>
+<div class="package" onclick="selectDiamond(this,240)">355 💎<br>240 TK</div>
+<div class="package" onclick="selectDiamond(this,380)">610 💎<br>380 TK</div>
+<div class="package" onclick="selectDiamond(this,420)">1270 💎<br>420 TK</div>
+</div>
+<div class="price">Diamond Price: <span id="diamondPrice">0</span> TK</div>
+</div>
+
+<!-- Level Up Pass -->
+<div class="section">
+<h3>🎟 Level Up Pass</h3>
+<div class="packages">
+<div class="package" onclick="selectLevel(this,40)">6 Level<br>40 TK</div>
+<div class="package" onclick="selectLevel(this,70)">10 Level<br>70 TK</div>
+<div class="package" onclick="selectLevel(this,70)">15 Level<br>70 TK</div>
+<div class="package" onclick="selectLevel(this,70)">20 Level<br>70 TK</div>
+<div class="package" onclick="selectLevel(this,100)">30 Level<br>100 TK</div>
+<div class="package" onclick="selectLevel(this,420)">Full Pass<br>420 TK</div>
+</div>
+<div class="price">Level Price: <span id="levelPrice">0</span> TK</div>
+</div>
+
+<!-- Evo Gun -->
+<div class="section">
+<h3>🔥 Evo Gun</h3>
+<div class="packages">
+<div class="package" onclick="selectEvo(this,'3 Days 70 TK')">3 Days<br>70 TK</div>
+<div class="package" onclick="selectEvo(this,'7 Days 85 TK')">7 Days<br>85 TK</div>
+<div class="package" onclick="selectEvo(this,'10 Days 100 TK')">10 Days<br>100 TK</div>
+<div class="package" onclick="selectEvo(this,'30 Days 330 TK')">30 Days<br>330 TK</div>
+<div class="package" onclick="selectEvo(this,'60 Days 660 TK')">60 Days<br>660 TK</div>
+</div>
+<p id="evoText"></p>
+</div>
+
+<!-- Payment -->
+<div class="section">
+<h3>💳 Payment</h3>
+<p>Number: <b id="number">01851634841</b>
+<button class="copy" onclick="copyNumber()">Copy</button></p>
+<input type="text" id="txnID" placeholder="Transaction ID দিন">
+<br><br>
+<input type="file">
+<br><br>
+<button onclick="submitPayment()">Submit Order</button>
+</div>
+
+<script>
+function selectDiamond(el,price){
+document.querySelectorAll(".package").forEach(p=>p.classList.remove("selected"));
+el.classList.add("selected");
+document.getElementById("diamondPrice").innerText=price;
+}
+function selectLevel(el,price){
+document.querySelectorAll(".package").forEach(p=>p.classList.remove("selected"));
+el.classList.add("selected");
+document.getElementById("levelPrice").innerText=price;
+}
+function selectEvo(el,name){
+document.querySelectorAll(".package").forEach(p=>p.classList.remove("selected"));
+el.classList.add("selected");
+document.getElementById("evoText").innerText="Selected: "+name;
+}
+function copyNumber(){
+let text=document.getElementById("number").innerText;
+navigator.clipboard.writeText(text);
+alert("Number Copied");
+}
+function submitPayment(){
+let id=document.getElementById("txnID").value;
+if(id){alert("Order Submitted ✅");}
+else{alert("Transaction ID দিন");}
+}
+// Special Offer Date 21-22-23
+let today=new Date().getDate();
+if(today==21||today==22||today==23){
+document.getElementById("offer").innerText="🔥 1 TK / 10 TK / 660 TK Unlimited Offer Active";
+}else{
+document.getElementById("offer").innerText="❌ Offer Closed";
+}
+</script>
+
+</body>
+</html>
