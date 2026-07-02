@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RX TOP UP BD</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f172a;
+color:white;
+}
+
+header{
+background:linear-gradient(90deg,#ff6a00,#ffb300);
+padding:20px;
+text-align:center;
+font-size:26px;
+font-weight:bold;
+}
+
+.banner{
+padding:30px;
+text-align:center;
+background:#111827;
+}
+
+.banner h1{
+color:#FFD700;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+}
+
+.card{
+background:#1e293b;
+padding:15px;
+border-radius:12px;
+text-align:center;
+border:1px solid #334155;
+transition:.3s;
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px #ff8800;
+}
+
+.price{
+color:#00ff99;
+font-size:22px;
+margin:10px 0;
+}
+
+button{
+background:#ff6a00;
+border:none;
+color:white;
+padding:10px;
+width:100%;
+border-radius:8px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff8800;
+}
+
+.order-box{
+max-width:500px;
+margin:30px auto;
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+border:1px solid #334155;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+.payment{
+background:#0f172a;
+padding:10px;
+border-radius:8px;
+margin-top:10px;
+text-align:center;
+color:#00ff99;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#000;
+margin-top:30px;
+color:#aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+🎮 RX TOP UP BD
+</header>
+
+<div class="banner">
+<h1>Free Fire Diamond Top-Up</h1>
+<p>Fast • Secure • Easy Order</p>
+</div>
+
+<!-- Diamond Packages -->
+<div class="container">
+
+<div class="card">
+<h3>25 Diamonds</h3>
+<div class="price">৳20</div>
+<button onclick="buy('25 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>50 Diamonds</h3>
+<div class="price">৳40</div>
+<button onclick="buy('50 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>115 Diamonds</h3>
+<div class="price">৳80</div>
+<button onclick="buy('115 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>240 Diamonds</h3>
+<div class="price">৳160</div>
+<button onclick="buy('240 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>355 Diamonds</h3>
+<div class="price">৳240</div>
+<button onclick="buy('355 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>480 Diamonds</h3>
+<div class="price">৳320</div>
+<button onclick="buy('480 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>610 Diamonds</h3>
+<div class="price">৳400</div>
+<button onclick="buy('610 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>850 Diamonds</h3>
+<div class="price">৳560</div>
+<button onclick="buy('850 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>1090 Diamonds</h3>
+<div class="price">৳720</div>
+<button onclick="buy('1090 Diamonds')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>Weekly Lite</h3>
+<div class="price">৳50</div>
+<button onclick="buy('Weekly Lite')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>Weekly Membership</h3>
+<div class="price">৳160</div>
+<button onclick="buy('Weekly Membership')">Buy Now</button>
+</div>
+
+<div class="card">
+<h3>Monthly Membership</h3>
+<div class="price">৳800</div>
+<button onclick="buy('Monthly Membership')">Buy Now</button>
+</div>
+
+</div>
+
+<!-- Order Form -->
+<div class="order-box">
+
+<h2>🛒 Order Form</h2>
+
+<input type="text" id="uid" placeholder="Enter Free Fire UID">
+<input type="text" id="name" placeholder="Your Name">
+
+<select id="package">
+<option>25 Diamonds - ৳20</option>
+<option>50 Diamonds - ৳40</option>
+<option>115 Diamonds - ৳80</option>
+<option>240 Diamonds - ৳160</option>
+<option>355 Diamonds - ৳240</option>
+<option>480 Diamonds - ৳320</option>
+<option>610 Diamonds - ৳400</option>
+<option>850 Diamonds - ৳560</option>
+<option>1090 Diamonds - ৳720</option>
+<option>Weekly Lite - ৳50</option>
+<option>Weekly Membership - ৳160</option>
+<option>Monthly Membership - ৳800</option>
+</select>
+
+<div class="payment">
+💳 Send Money: 01851634841 (bKash/Nagad)
+</div>
+
+<button onclick="orderNow()">Place Order</button>
+
+</div>
+
+<footer>
+© 2026 RX TOP UP BD | Demo Website
+</footer>
+
+<script>
+function buy(item){
+document.getElementById("package").value = item;
+window.scrollTo({top: document.body.scrollHeight, behavior:'smooth'});
+}
+
+function orderNow(){
+let uid = document.getElementById("uid").value;
+let name = document.getElementById("name").value;
+let pack = document.getElementById("package").value;
+
+if(uid=="" || name==""){
+alert("Please fill all fields!");
+return;
+}
+
+alert(
+"Order Received!\n\nName: " + name +
+"\nUID: " + uid +
+"\nPackage: " + pack +
+"\nSend Money: 01851634841"
+);
+}
+</script>
+
+</body>
+</html>
